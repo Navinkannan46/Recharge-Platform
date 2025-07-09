@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route, Routes } from "react-router"
+import {  Route, Routes } from "react-router"
 
 import Home from "../components/home/Home"
 import EditProfile from "../pages/editProfile/EditProfile"
