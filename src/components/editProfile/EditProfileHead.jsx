@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router"
 
-const EditProfileHead = ({ userDetails, setProfileImage }) => {
+const EditProfileHead = ({ userDetails, setProfileImage, error }) => {
     const [image, setImage] = useState('')
 
     const handleChange = (e) => {
         const file = e.target.files[0] || null
-        const fileUrl =file? URL.createObjectURL(file):''
+        const fileUrl = file ? URL.createObjectURL(file) : ''
         setImage(fileUrl)
         setProfileImage(fileUrl)
     }
@@ -27,6 +27,7 @@ const EditProfileHead = ({ userDetails, setProfileImage }) => {
                 <div>
                     <label htmlFor="image" className='text-black/50 text-[20px] font-inter'>Change Profile Picture </label>
                     <input type="file" onChange={handleChange} name='image' id='image' required placeholder='Change Profile Picture' hidden />
+                    {error && <div className="text-sm text-red-600">{error} </div>}
                 </div>
             </div>
         </>

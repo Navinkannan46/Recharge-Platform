@@ -1,24 +1,22 @@
-import { createBrowserRouter } from "react-router"
+import { createBrowserRouter, Route, Routes } from "react-router"
 
 import Home from "../components/home/Home"
 import EditProfile from "../pages/editProfile/EditProfile"
 import MainMyAccount from "../pages/myAccount/MainMyAccount"
 import { MainRechargeHistory } from "../pages/rechargeHistory/MainRechargeHistory"
 
-const userRouter = createBrowserRouter(
-  [
-    {
-      path: '/', element: <Home />
-    },
-    {
-      path: '/my-account', element: <MainMyAccount />
-    },
-    {
-      path: '/edit-profile', element: <EditProfile />
-    },
-    {
-      path: '/recharge-history', element: <MainRechargeHistory />
-    }
-  ]
-)
-export default userRouter
+
+
+const UserRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path= "/my-account" element= {<MainMyAccount />} />
+      <Route path="/edit-profile" element={<EditProfile />} />
+      <Route path="/recharge-history" element={<MainRechargeHistory />} />
+    </Routes>
+  )
+}
+
+export default UserRoutes
+

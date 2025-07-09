@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const EditProfileForm = ({ userDetails, onClick }) => {
+const EditProfileForm = ({ userDetails, onClick, error }) => {
     const [inputValues, setInputValues] = useState({
         name: '', phone: '', email: '', address: ''
     })
@@ -35,15 +35,19 @@ const EditProfileForm = ({ userDetails, onClick }) => {
             <div className='flex flex-col gap-5'>
                 <div>
                     <input type="text" value={name || ""} onChange={handleChange} name='name' placeholder='Full Name' className=' font-inter w-full rounded-xl p-3 text-[18px] shadow-xl inset-shadow-sm outline-0' />
+                    {error && <div className="text-sm text-red-600">{error} </div>}
                 </div>
                 <div>
                     <input type="text" value={phone || ""} onChange={handleChange} name='phone' placeholder='Mobile Number' className='font-inter w-full rounded-xl p-3 text-[18px] shadow-xl inset-shadow-sm outline-0' />
+                    {error && <div className="text-sm text-red-600">{error} </div>}
                 </div>
                 <div>
                     <input type="text" value={email || ""} onChange={handleChange} name='email' placeholder='Email Address' className='font-inter w-full rounded-xl p-3 text-[18px] shadow-xl inset-shadow-sm outline-0' />
+                    {error && <div className="text-sm text-red-600">{error} </div>}
                 </div>
                 <div>
                     <textarea type="text" value={address || ""} onChange={handleChange} name='address' placeholder='Billing Address' className='font-inter  w-full rounded-xl p-3 text-[18px] shadow-xl inset-shadow-sm outline-0' />
+                    {error && <div className="text-sm text-red-600">{error} </div>}
                 </div>
 
                 <button type='submit' className='text-[24px] font-bold text-white m-auto max-w-[234px] w-[90%] py-[10px] px-[76px] bg-blue-600 rounded-4xl font-inter'>Save</button>
